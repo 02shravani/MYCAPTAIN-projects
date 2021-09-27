@@ -1,0 +1,40 @@
+import csv
+    
+def write_into_csv(info_list):
+    with open("student_info.csv", "w+", newline="") as csv_file:
+        writer = csv.writer(csv_file)
+    if csv_file.tell() == 0:
+        writer.writerow(['name', 'age', 'cont_numb', 'email_id'])
+        
+    writer.writerow(info_list)
+    
+
+condition = True
+
+while(condition):
+        student_info = input("enter some student information in the following format{name age cont_numb email_id}:")
+    
+        print("entered information" + student_info) 
+        
+        student_info_list = student_info.split(' ') 
+        print("entered split up information is:" + str(student_info_list))
+        
+        write_into_csv(student_info_list)
+                      
+        
+        condition_check = input("enter {yes/no} if you want to enter information for another student")
+        if condition_check == "yes":
+            condition = True
+        elif condition_check == "no":
+            condition = False
+            
+enter some student information in the following format{name age cont_numb email_id}:suma, 35, 8866553345, suma@gamil.com
+entered informationsuma, 35, 8866553345, suma@gamil.com
+entered split up information is:['suma,', '35,', '8866553345,', 'suma@gamil.com']
+enter {yes/no} if you want to enter information for another studentsuresh, 45, 5654426585, suresh@gamil.com
+enter some student information in the following format{name age cont_numb email_id}:shravani, 19, 6564537786, shravani@gamil.com
+entered informationshravani, 19, 6564537786, shravani@gamil.com
+entered split up information is:['shravani,', '19,', '6564537786,', 'shravani@gamil.com']
+enter {yes/no} if you want to enter information for another studentno
+
+
